@@ -1,6 +1,6 @@
 const { Friend } = require('../models')
 
-models.exports = {
+module.exports = {
 
     async getFriend(req, res) {
         try {

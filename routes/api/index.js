@@ -7,6 +7,6 @@ const friendRoutes = require("./freinds");
 
 router.use("/user", userRoutes);
 router.use("/thought", thoughtRoutes);
-router.use("/", );
+router.use("/freind", friendRoutes);
 
 module.exports = router;
