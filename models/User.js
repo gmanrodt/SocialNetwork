@@ -1,4 +1,4 @@
-const { Schema, Types } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema(
     {
@@ -14,13 +14,13 @@ const userSchema = new Schema(
             unique: true,
 
             //add a validation on here 
-        },
-        thoughts: {
-            thoughts: [{type: Schema.Types.ObjectId, ref: 'thought'}]
-        },
-        friends: {
-            thoughts: [{type: Schema.Types.ObjectId, ref: 'friend'}]
         }
+        // thoughts: {
+        //     thoughts: [{type: Schema.Types.ObjectId, ref: 'thought'}]
+        // },
+        // friends: {
+        //     thoughts: [{type: Schema.Types.ObjectId, ref: 'friend'}]
+        // }
     }
 )
 

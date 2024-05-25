@@ -1,4 +1,4 @@
-const { Thought } = require('../models')
+const { Thought } = require('../models/Thought')
 
 module.exports = {
 
@@ -18,6 +18,16 @@ module.exports = {
         }
         catch (err) {
             res.status(500).json(err);
+        }
+    },
+
+    async createThought(req, res){
+        try {
+            const thought = await Thought.create()
+        }
+        catch (err){
+            console.log(err);
+            return res.status(500).json(err);
         }
     },
 
