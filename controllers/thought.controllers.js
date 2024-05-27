@@ -1,4 +1,4 @@
-const { Thought } = require('../models/index.js');
+const { Thought,User } = require('../models/index.js');
 
 module.exports = {
 
@@ -8,7 +8,7 @@ module.exports = {
             res.json(thought);
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     },
 
@@ -19,11 +19,11 @@ module.exports = {
             res.json(thought);
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     },
 
-    async createThought(req, res, next){
+    async createThought(req, res){
         try {
             const thought = await Thought.create(req.body);
             const user = await User.findOne({ _id: [req.params.id] }).populate('friends').populate('thoughts');
@@ -33,8 +33,7 @@ module.exports = {
         }
         catch (err){
             console.log(err);
-            //res.status(500).send(err);
-            next(err);
+            res.status(500).send(err.stack);
         }
     },
 
@@ -47,7 +46,7 @@ module.exports = {
             res.json(thought);
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     },
 
@@ -57,7 +56,7 @@ module.exports = {
             res.status(200).json("OK");
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     }
 }

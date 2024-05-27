@@ -7,7 +7,7 @@ module.exports = {
             const friend = await Friend.find()
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     },
 
@@ -17,7 +17,7 @@ module.exports = {
             const friend = await Friend.findOne({ _id: [req.params.id] })
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     },
 
@@ -26,7 +26,7 @@ module.exports = {
             const friend = await Friend.findOneAndDelete({ _id: req.params.id });
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     }
 }

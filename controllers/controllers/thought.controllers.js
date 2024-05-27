@@ -8,7 +8,7 @@ module.exports = {
             res.json(thought);
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     },
 
@@ -19,7 +19,7 @@ module.exports = {
             res.json(thought);
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     },
 
@@ -30,7 +30,7 @@ module.exports = {
         }
         catch (err){
             console.log(err);
-            return res.status(500).json(err);
+            return res.status(500).send(err.stack);
         }
     },
 
@@ -43,7 +43,7 @@ module.exports = {
             res.json(thought);
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     },
 
@@ -53,7 +53,7 @@ module.exports = {
             res.status(200).json("OK");
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     }
 }

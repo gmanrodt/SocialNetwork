@@ -8,7 +8,7 @@ module.exports = {
             res.json(user);
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     },
 
@@ -19,7 +19,7 @@ module.exports = {
             res.json(user);
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     },
 
@@ -30,7 +30,7 @@ module.exports = {
         }
         catch (err){
             console.log(err)
-            return res.status(500).json(err);
+            return res.status(500).send(err.stack);
         }
     },
 
@@ -42,7 +42,7 @@ module.exports = {
             )
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     },
 
@@ -51,7 +51,7 @@ module.exports = {
             const user = await User.findOneAndDelete({ _id: req.params.id });
         }
         catch (err) {
-            res.status(500).json(err);
+            res.status(500).send(err.stack);
         }
     }
 };
