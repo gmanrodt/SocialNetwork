@@ -4,12 +4,11 @@ const { getThought, getOneThought, updateThought, deleteThought, createThought }
 router
     .route('/')
     .get(getThought)
-    .post(updateThought);
+    .post(createThought);
 
 router
     .route('/:id')
     .get(getOneThought)
-    .post(createThought)
     .put(updateThought)
     .delete(deleteThought);
 

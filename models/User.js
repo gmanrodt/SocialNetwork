@@ -14,15 +14,15 @@ const userSchema = new Schema(
             unique: true,
 
             //add a validation on here 
-        }
+        },
         // thoughts: {
         //     thoughts: [{type: Schema.Types.ObjectId, ref: 'thought'}]
         // },
-        // friends: {
-        //     thoughts: [{type: Schema.Types.ObjectId, ref: 'friend'}]
-        // }
+        friends: {
+            thoughts: [{type: Schema.Types.ObjectId, ref: 'friend'}]
+        }
     }
 )
 
-const User = model('user', userSchema);
+const User = model('User', userSchema);
 module.exports = User;
