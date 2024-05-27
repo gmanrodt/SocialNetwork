@@ -23,14 +23,18 @@ module.exports = {
         }
     },
 
-    async createThought(req, res){
+    async createThought(req, res, next){
         try {
             const thought = await Thought.create(req.body);
-            res.json(thought);
+            const user = await User.findOne({ _id: [req.params.id] }).populate('friends').populate('thoughts');
+            user.thoughts.push(thought);
+            user.save();
+            res.send(user);
         }
         catch (err){
             console.log(err);
-            return res.status(500).json(err);
+            //res.status(500).send(err);
+            next(err);
         }
     },
 

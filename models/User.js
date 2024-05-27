@@ -15,12 +15,8 @@ const userSchema = new Schema(
 
             //add a validation on here 
         },
-        // thoughts: {
-        //     thoughts: [{type: Schema.Types.ObjectId, ref: 'thought'}]
-        // },
-        friends: {
-            thoughts: [{type: Schema.Types.ObjectId, ref: 'friend'}]
-        }
+        thoughts: [{type: Schema.Types.ObjectId, ref: 'thoughts'}],
+        friends: [{type: Schema.Types.ObjectId, ref: 'users'}]
     }
 )
 
